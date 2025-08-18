@@ -12,14 +12,12 @@
 
 - Inngest
 
-### Frontend
+### Frontend & Backend
 
 - Nextjs
   -- Drag & Drop
 - TailwindCSS
 - Typescript
-
-### Backend
 
 ### Database
 
@@ -28,7 +26,9 @@
 
 ### Authentication
 
-- Clerk
+- [Clerk](https://clerk.com/)
+  : authentication and more on user managements
+- Use JWT(Json Web Token) for session
 
 ### Pricing & Billing solution
 
