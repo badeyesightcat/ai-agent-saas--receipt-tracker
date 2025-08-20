@@ -1,4 +1,4 @@
-"use strict"; // make this a client component
+"use strict"; // make this a client component due to check in where we are
 
 function Header() {
   return (
