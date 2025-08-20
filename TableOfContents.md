@@ -18,6 +18,7 @@
   -- Drag & Drop
 - TailwindCSS
 - Typescript
+- Shadcn: design system
 
 ### Database
 
