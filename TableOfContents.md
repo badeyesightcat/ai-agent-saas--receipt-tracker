@@ -33,4 +33,8 @@
 
 ### Pricing & Billing solution
 
-- Schematic
+- [Schematic](https://schematichq.com/)
+  : Handle payments throught the entire way of the app use
+  : Give gating and users featrues
+- [Stripe](https://stripe.com/)
+  : give programmable API and tools and payments
