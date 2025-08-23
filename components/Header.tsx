@@ -4,6 +4,7 @@ import { Shield } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 function Header() {
   const pathname = usePathname(); // needs to use "use client" due to checking path
@@ -11,7 +12,10 @@ function Header() {
 
   return (
     <div
-      className={`p-4 flex items-center justify-between ${isHomepage ? "bg-sky-100" : "bg-white border-b-2 border-sky-100"}`}
+      className={cn("p-4 flex items-center justify-between", {
+        "bg-sky-100": isHomepage,
+        "bg-white border-b-2 border-sky-100": !isHomepage,
+      })}
     >
       <Link href="/" className="flex items-center">
         <Shield className="h-6 w-6 text-sky-400 mr-2" />
