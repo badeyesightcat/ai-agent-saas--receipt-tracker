@@ -51,15 +51,17 @@ function DragAndDropZone() {
       const fileArray = Array.from(files);
       const receiptFiles = fileArray.filter(
         (file) =>
-          file.type.includes("jpeg") ||
-          file.type.includes("pdf") ||
-          file.name.toLowerCase().endsWith(".pdf") ||
-          file.name.toLowerCase().endsWith(".jpg") ||
-          file.name.toLowerCase().endsWith(".jpeg"),
+          file.type.includes("image/") &&
+          (file.name.toLowerCase().endsWith(".gif") ||
+            file.name.toLowerCase().endsWith(".png") ||
+            file.name.toLowerCase().endsWith(".jpg") ||
+            file.name.toLowerCase().endsWith(".jpeg")),
       );
 
       if (receiptFiles.length === 0) {
-        alert("Please upload valid receipt files; which are PDF or JPEG.");
+        alert(
+          "Please upload valid receipt files; which are GIF, PNG, or JPEG.",
+        );
         return;
       }
 
