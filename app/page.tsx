@@ -1,3 +1,4 @@
+import DragAndDropZone from "@/components/DragAndDropZone";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -40,11 +41,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* PDF drop zone */}
+        {/* Receipt drop zone */}
         <div className="mt-12 flex justify-center">
           <div className="relative w-full max-w-3xl rounded-lg border border-gray-200 bg-white shadow-lg overflow-hidden dark:border-gray-800 dark:bg-gray-950">
             <div className="p-6 md:p-8 relative">
-              <p>PDF Dropzone goes here...</p>
+              <DragAndDropZone />
             </div>
           </div>
         </div>
@@ -72,7 +73,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold">Easy Uploads</h3>
                 <p className="text-gray-500 dark:text-gray-400 text-center">
-                  Drag and drop your PDF receipts for instant scanning and
+                  Drag and drop your Receipt receipts for instant scanning and
                   processing
                 </p>
               </div>
