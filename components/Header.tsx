@@ -1,12 +1,7 @@
 "use client"; // make this a client component due to check in where we are
 
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import {
-  Scissors,
-  ScissorsLineDashed,
-  ScissorsSquareDashedBottom,
-  Shield,
-} from "lucide-react";
+import { Scissors } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
@@ -22,7 +17,6 @@ function Header() {
   return (
     <div className={cn("p-4 flex items-center justify-between", styleClasses)}>
       <Link href="/" className="flex items-center">
-        {/* <Shield className="h-6 w-6 text-purple-600 mr-2" /> */}
         <h1 className="text-xl font-semibold text-purple-600 border-y-4 border-y-purple-600 border-dashed flex items-center gap-2 py-1.5">
           MONEY
           <Scissors className="h-6 w-6 text-purple-600" />
