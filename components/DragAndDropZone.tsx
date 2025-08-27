@@ -9,8 +9,10 @@ import {
   PointerSensor,
 } from "@dnd-kit/core";
 import { useSchematicEntitlement } from "@schematichq/schematic-react";
+import { AlertCircle, CheckCircle, CloudUpload } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useRef, useState } from "react";
+import { Button } from "./ui/button";
 
 function DragAndDropZone() {
   // setup sensors for drag detection
@@ -26,7 +28,6 @@ function DragAndDropZone() {
 
   const {
     value: isFeatureEnabled,
-    featureUsage,
     featureUsageExceeded,
     featureAllocation,
   } = useSchematicEntitlement("scans");
@@ -122,6 +123,19 @@ function DragAndDropZone() {
     [user, handleUpload],
   );
 
+  const handleFileInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      if (event.target.files?.length) {
+        handleUpload(event.target.files);
+      }
+    },
+    [handleUpload],
+  );
+
+  const triggerFileInput = useCallback(() => {
+    fileInputRef.current?.click();
+  }, []);
+
   const isUserSignedIn = !!user;
   const canUpload = isUserSignedIn && isFeatureEnabled;
 
@@ -140,7 +154,71 @@ function DragAndDropZone() {
               "opacity-70 cursor-not-allowed": !canUpload,
             },
           )}
-        ></div>
+        >
+          {isUploading ? (
+            <div className="flex flex-col items-center">
+              <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-indigo-500 mb-2"></div>
+              <p>Uploading...</p>
+            </div>
+          ) : !isUserSignedIn ? (
+            <>
+              <CloudUpload className="mx-auto h-12 w-12 text-gray-400" />
+              <p className="mt-2 text-sm text-gray-600">
+                Please sign in to upload files.
+              </p>
+            </>
+          ) : (
+            <>
+              <CloudUpload className="mx-auto h-12 w-12 text-gray-400" />
+              <p className="mt-2 text-sm text-gray-600">
+                Drag and drop image files here, or click to select files
+              </p>
+              <input
+                type="file"
+                multiple
+                accept="image/gif, image/png, image/jpeg"
+                ref={fileInputRef}
+                className="hidden"
+                onChange={handleFileInputChange}
+              />
+              <Button
+                className="mt-4 px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={!isFeatureEnabled}
+                onClick={triggerFileInput}
+              >
+                {isFeatureEnabled ? "Select files" : "Upgrade to upload"}
+              </Button>
+            </>
+          )}
+        </div>
+
+        {featureUsageExceeded && (
+          <div className="mt-4">
+            <div className="flex items-center p-3 bg-red-50 border border-red-200 rounded-md text-red-600">
+              <AlertCircle className="h-5 w-5 mr-2 flex-shrink-0" />
+              <span>
+                You have exceeded your limits of {featureAllocation} scans.
+                Please upgrade to continue.
+              </span>
+            </div>
+          </div>
+        )}
+
+        {uploadedFiles.length > 0 && (
+          <div className="mt-4">
+            <h3 className="font-medium">Uploaded Files:</h3>
+            <ul className="mt-2 text-sm text-gray-600 space-y-1">
+              {uploadedFiles.map((fileName, i) => (
+                <li key={i} className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                  {fileName}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/*  */}
       </div>
     </DndContext>
   );
