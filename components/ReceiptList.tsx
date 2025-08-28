@@ -7,11 +7,11 @@ import {
   Table,
   TableHeader,
   TableBody,
-  TableFooter,
+  // TableFooter,
   TableHead,
   TableRow,
   TableCell,
-  TableCaption,
+  // TableCaption,
 } from "./ui/table";
 import { useRouter } from "next/navigation";
 import { Doc } from "@/convex/_generated/dataModel";
