@@ -1,57 +1,71 @@
 # AI Agent SaaS for tracking receipts
 
-## What an Agent includes:
+### What an Agent includes:
 
 - LLM
 - Memory store
 - Tools
 
-## Tech stack
+---
 
-### AI agentic workflow, debug, orchestration
+### Tech stack
 
-#### [Inngest](https://www.inngest.com/)
+##### AI model
+
+- [Anthropic](https://www.anthropic.com/)
+
+- [OpenAI](https://openai.com/)
+
+##### AI agentic workflow, debug, orchestration
+
+- [Inngest](https://www.inngest.com/)
 
 <br><br><br>
 
-### Frontend & Backend
+##### Frontend & Backend
 
-#### Nextjs
+- Nextjs
 
 - Drag & Drop
 
-#### TailwindCSS
+- TailwindCSS
 
-#### Typescript
+- Typescript
 
-#### Shadcn: design system
+- Shadcn: design system
 
 <br><br><br>
 
-### Database
+##### Database
 
-#### [Convex](https://www.convex.dev/)
+- [Convex](https://www.convex.dev/)
 
 - automatically give features of typing
 
 <br><br><br>
 
-### Authentication
+##### Authentication
 
-#### [Clerk](https://clerk.com/)
+- [Clerk](https://clerk.com/)
 
 - authentication and more on user managements
 - Use JWT(Json Web Token) for session
 
 <br><br><br>
 
-### Pricing & Billing solution
+##### Pricing & Billing solution
 
-#### [Schematic](https://schematichq.com/)<br>
+- [Schematic](https://schematichq.com/)<br>
 
 - Handle payments throught the entire way of the app use
 - Give gating and users featrues
 
-#### [Stripe](https://stripe.com/)
+- [Stripe](https://stripe.com/)
 
 - give programmable API and tools and payments
+
+---
+
+### Roadmap
+
+- Add a feature for extracting informations with divided receipt images
