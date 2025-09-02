@@ -4,11 +4,8 @@ import { api } from "@/convex/_generated/api";
 import convex from "@/lib/convexClient";
 import { currentUser } from "@clerk/nextjs/server";
 import { getFileDownloadUrl } from "./getFileDownloadUrl";
-
-function isAllowedFile(file: File): boolean {
-  const allowedExtensions = /\.(jpg|jpeg|png|gif)$/i;
-  return file.type.startsWith("image/") && allowedExtensions.test(file.name);
-}
+import { inngest } from "@/inngest/client";
+import { Events } from "@/inngest/constants";
 import { isAllowedFile } from "@/lib/validation";
 
 /**
@@ -85,8 +82,13 @@ export async function uploadReceipt(formData: FormData) {
     //   throw new Error(fileUrl.error || "Failed to generate file URL");
     // }
 
-    // [TODO] Trigger inngest agent flow
-    // ...
+    await inngest.send({
+      name: Events.EXTRACT_DATA_FROM_RECEIPT_AND_SAVE_TO_DATABASE,
+      data: {
+        url: fileUrl,
+        receiptId,
+      },
+    });
 
     return { success: true, data: { receiptId, fileName: file.name } }; //  fileUrl: fileUrl.downloadUrl
   } catch (error) {
