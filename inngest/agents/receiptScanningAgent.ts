@@ -9,8 +9,9 @@ const parseReceiptTool = createTool({
     receiptUrl: z.string(),
   }),
   handler: async ({ receiptUrl }, { step }) => {
-    console.log(receiptUrl);
     try {
+      console.log("Received parameters for receipt parsing.", { receiptUrl });
+
       return await step?.ai.infer("parse-receipt", {
         model: anthropic({
           model: "claude-3-5-haiku-latest",
