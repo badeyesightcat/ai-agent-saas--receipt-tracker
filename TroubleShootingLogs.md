@@ -40,3 +40,24 @@ npm rm zod
 import { ..., openai } from "@inngest/agent-kit";
 import { anthropic } from "inngest";
 ```
+
+<br /><br /><br />
+
+- [ ] an error passing in the parameter for a task to the receipt-parsing agent
+
+```
+/*
+ * agent network's default routing system passes in parameter named in "event" for an agent,
+ * that is designed in a specific scheme,
+ * event: {
+ *   data: { ... }, // [!important] be aware of the scheme inside data prop
+ *   id: '...',
+ *   name: '...',
+ *   ts: ...,
+ *   user: {}
+ * }
+*/
+
+[HOWTO] in code, pass in the right hierachy of the value you intend to pass over,
+
+```
