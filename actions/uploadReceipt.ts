@@ -9,6 +9,7 @@ function isAllowedFile(file: File): boolean {
   const allowedExtensions = /\.(jpg|jpeg|png|gif)$/i;
   return file.type.startsWith("image/") && allowedExtensions.test(file.name);
 }
+import { isAllowedFile } from "@/lib/validation";
 
 /**
  * Server action to upload receipt file to Convex storage
@@ -33,7 +34,7 @@ export async function uploadReceipt(formData: FormData) {
     if (!isAllowedFile(file)) {
       return {
         success: false,
-        error: "Invalid file type. Only image files are allowed.",
+        error: "Invalid file type. Only image files and PDF files are allowed.",
       };
     }
 

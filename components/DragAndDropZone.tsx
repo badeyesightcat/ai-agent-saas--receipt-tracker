@@ -13,6 +13,7 @@ import { AlertCircle, CheckCircle, CloudUpload } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useRef, useState } from "react";
 import { Button } from "./ui/button";
+import { isAllowedFile } from "@/lib/validation";
 
 function DragAndDropZone() {
   // setup sensors for drag detection
@@ -50,18 +51,11 @@ function DragAndDropZone() {
       }
 
       const fileArray = Array.from(files);
-      const receiptFiles = fileArray.filter(
-        (file) =>
-          file.type.includes("image/") &&
-          (file.name.toLowerCase().endsWith(".gif") ||
-            file.name.toLowerCase().endsWith(".png") ||
-            file.name.toLowerCase().endsWith(".jpg") ||
-            file.name.toLowerCase().endsWith(".jpeg")),
-      );
+      const receiptFiles = fileArray.filter((file) => isAllowedFile(file));
 
       if (receiptFiles.length === 0) {
         alert(
-          "Please upload valid receipt files; which are GIF, PNG, or JPEG.",
+          "Please upload valid receipt files; which are GIF, PNG, JPEG or PDF.",
         );
         return;
       }
@@ -176,7 +170,7 @@ function DragAndDropZone() {
               <input
                 type="file"
                 multiple
-                accept="image/gif, image/png, image/jpeg"
+                accept="image/gif, image/png, image/jpeg, application/pdf"
                 ref={fileInputRef}
                 className="hidden"
                 onChange={handleFileInputChange}
