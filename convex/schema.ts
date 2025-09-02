@@ -19,7 +19,7 @@ export default defineSchema({
     // Field for extracted data
     merchantName: v.optional(v.string()),
     merchantAddress: v.optional(v.string()),
-    merchantContract: v.optional(v.string()),
+    merchantContact: v.optional(v.string()),
     transactionDate: v.optional(v.string()),
     transactionAmount: v.optional(v.string()),
     currency: v.optional(v.string()),

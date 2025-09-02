@@ -37,7 +37,7 @@ export const storeReceipt = mutation({
       // Initialize extracted data fields as undefined
       merchantName: undefined,
       merchantAddress: undefined,
-      merchantContract: undefined,
+      merchantContact: undefined,
       transactionDate: undefined,
       transactionAmount: undefined,
       currency: undefined,
@@ -179,7 +179,7 @@ export const updateReceiptWithExtractedData = mutation({
     // Extracted data fields
     merchantName: v.string(),
     merchantAddress: v.string(),
-    merchantContract: v.string(),
+    merchantContact: v.string(),
     transactionDate: v.string(),
     transactionAmount: v.string(),
     currency: v.string(),
@@ -213,7 +213,7 @@ export const updateReceiptWithExtractedData = mutation({
       fileDisplayName: args.fileDisplayName,
       merchantName: args.merchantName,
       merchantAddress: args.merchantAddress,
-      merchantContract: args.merchantContract,
+      merchantContact: args.merchantContact,
       transactionDate: args.transactionDate,
       transactionAmount: args.transactionAmount,
       currency: args.currency,
