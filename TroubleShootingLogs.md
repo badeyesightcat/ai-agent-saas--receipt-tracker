@@ -61,3 +61,17 @@ import { anthropic } from "inngest";
 [HOWTO] in code, pass in the right hierachy of the value you intend to pass over,
 
 ```
+
+<br /><br /><br />
+
+- [ ] an error as to referring an item of db due to the wrong identifier while passing in parameters
+
+```
+/*
+ * in the databaseAgent, with the use of updateReceiptWithExtractedData function,
+ * arguments have a prop named "id", but it should be replaced with one named "receiptId"
+*/
+
+[HOWTO] in code, pass in the right prop name with 'receiptId' other than 'id',
+
+```
