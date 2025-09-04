@@ -10,7 +10,7 @@ const parseReceiptTool = createTool({
   }),
   handler: async ({ receiptUrl }, { step }) => {
     try {
-      console.log("Received parameters for receipt parsing.", { receiptUrl });
+      // console.log("Received parameters for receipt parsing.", { receiptUrl });
 
       return await step?.ai.infer("parse-receipt", {
         model: anthropic({

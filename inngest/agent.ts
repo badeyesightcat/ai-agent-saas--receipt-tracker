@@ -39,7 +39,7 @@ export const extractAndSaveReceipt = inngest.createFunction(
   { id: "Extract and Save Receipt into Database" },
   { event: Events.EXTRACT_DATA_FROM_RECEIPT_AND_SAVE_TO_DATABASE },
   async ({ event }) => {
-    console.log("inngest 가 event 줌", event);
+    // console.log("inngest 가 event 줌", event);
     // [!important] PASS IN the right value to the next call
     // ${event.data.url} DOES NOT pass the right value scheme
     const result = await agentNetwork.run(
