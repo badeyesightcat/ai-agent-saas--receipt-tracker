@@ -76,16 +76,16 @@ export async function uploadReceipt(formData: FormData) {
     });
 
     // Generate the file URL
-    const fileUrl = await getFileDownloadUrl(storageId);
+    const fileUrlResponse = await getFileDownloadUrl(storageId);
 
-    // if (!fileUrl.success) {
-    //   throw new Error(fileUrl.error || "Failed to generate file URL");
-    // }
+    if (!fileUrlResponse.success) {
+      throw new Error(fileUrlResponse.error || "Failed to generate file URL");
+    }
 
     await inngest.send({
       name: Events.EXTRACT_DATA_FROM_RECEIPT_AND_SAVE_TO_DATABASE,
       data: {
-        url: fileUrl,
+        url: fileUrlResponse.downloadUrl,
         receiptId,
       },
     });

@@ -41,9 +41,8 @@ export const extractAndSaveReceipt = inngest.createFunction(
   async ({ event }) => {
     // console.log("inngest 가 event 줌", event);
     // [!important] PASS IN the right value to the next call
-    // ${event.data.url} DOES NOT pass the right value scheme
     const result = await agentNetwork.run(
-      `Extract the key data from this receipt: ${event.data.url.downloadUrl}. Once the data is extracted, save it to the database using the receiptId: ${event.data.receiptId}. Once the receipt is successfully saved to the database you can terminate the agent process.`,
+      `Extract the key data from this receipt: ${event.data.url}. Once the data is extracted, save it to the database using the receiptId: ${event.data.receiptId}. Once the receipt is successfully saved to the database you can terminate the agent process.`,
     );
 
     return result.state.kv.get("receipt");
