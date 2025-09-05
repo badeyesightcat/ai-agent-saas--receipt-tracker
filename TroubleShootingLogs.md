@@ -1,4 +1,4 @@
-# Troubles while working on
+# Troubleshooting journal
 
 - [ ] zod type error on the case of defining parameters prop inside createTool of @inngest/agent-kit:
 
@@ -74,4 +74,49 @@ import { anthropic } from "inngest";
 
 [HOWTO] in code, pass in the right prop name with 'receiptId' other than 'id',
 
+```
+
+<br /><br /><br />
+
+- [ ] an error saying "user not authenticated" while extracting data and write them onto the db
+
+```
+/*
+ * An error emerging from a distiction between client-side and server-side execution in convex application,
+
+ * 1. client-side authentication: user's interaction at the app, then Clerk JWT token would be attached to Convex functions.
+ * 2. server-side execution: Inngest agent uns on a server having a different session from the user's browser. But ConvexHttpClient is a unauthenticated client which Inngest uses.
+ * 3. When Inngest calls the updateReceiptWithExtractedData mutation, it does its work without any user identity. That makes the error occur.
+
+ In order to fix,
+ cannot use user-based authentication for server-to-server interaction.
+ should use internal mutation other than mutation.
+
+ internal mutation can only be called from other backend functions, and bypass the standard authentication flow which have the same access to database and other context.
+
+ but Inngest is an external service which cannot call an internal mutation directly, so the pattern is:
+ * 1. Create a public(regular) mutation that can be called by Inngest agent and should be secured with a secret.
+ * 2. The public mutation will call an internal mutation that performs the actual database update.
+
+*/
+****
+[HOWTO]
+1. Create an internalMutation in Convex that contains the core logic.
+2. Create a public mutation that acts as a secure gateway, callable by your Inngest agent.
+
+[WHERE] receipts.ts
+so, in order to achieve that, split the function below into two
+(ASIS) function updateReceiptWithExtractedData
+(TOBE) 1. function internalUpdateReceiptWithExtractedData: internalMutation that performs the database patch. Don't have user authentication logic.
+2. function updateReceiptWithExtractedData: public facing mutation that Inngest agent will call. this validates a secret before calling the internal function. This will verify against an environment variable. Once the token is valid, then it will cann the internal mutation.
+
+[WHERE] databaseAgent.ts
+1. Tool saveToDatabaseTool has to have userId as its parameters
+2. Pass the userId and the secret environment variable in the call to the Convex mutation.
+
+[WHERE] .env.local
+1. Generate a strong, random secret string.
+2. Go to Convex project settings.
+3. Under "Environment Variables", add a new variable named INNGEST_SECRET and paste the secret string as the value.
+4. Add the same secret to the environment where the Inngest agent is running such as .env.local file.
 ```
