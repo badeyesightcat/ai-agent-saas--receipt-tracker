@@ -1,5 +1,6 @@
 import { v } from "convex/values";
-import { query, mutation } from "./_generated/server";
+import { query, mutation, internalMutation } from "./_generated/server";
+import { internal } from "./_generated/api";
 
 // Function to generate a Convex upload URL for the client
 export const generateUploadUrl = mutation({
@@ -171,9 +172,58 @@ export const deleteReceipt = mutation({
   },
 });
 
+/** public mutation acting as a gateway for server-to-server communication */
 export const updateReceiptWithExtractedData = mutation({
   args: {
     receiptId: v.id("receipts"),
+    userId: v.string(),
+    secret: v.string(),
+    fileDisplayName: v.string(),
+    merchantName: v.string(),
+    merchantAddress: v.string(),
+    merchantContact: v.string(),
+    transactionDate: v.string(),
+    transactionAmount: v.string(),
+    currency: v.string(),
+    receiptSummary: v.string(),
+    items: v.array(
+      v.object({
+        name: v.string(),
+        quantity: v.number(),
+        unitPrice: v.number(),
+        totalPrice: v.number(),
+      }),
+    ),
+  },
+  handler: async (ctx, args) => {
+    if (args.secret !== process.env.INNGEST_SECRET) {
+      throw new Error("Not authorized to update this receipt");
+    }
+    await ctx.runMutation(
+      internal.receipts.internalUpdateReceiptWithExtractedData,
+      {
+        receiptId: args.receiptId,
+        userId: args.userId,
+        fileDisplayName: args.fileDisplayName,
+        merchantName: args.merchantName,
+        merchantAddress: args.merchantAddress,
+        merchantContact: args.merchantContact,
+        transactionDate: args.transactionDate,
+        transactionAmount: args.transactionAmount,
+        currency: args.currency,
+        receiptSummary: args.receiptSummary,
+        items: args.items,
+      },
+    );
+
+    return { userId: args.userId };
+  },
+});
+
+export const internalUpdateReceiptWithExtractedData = internalMutation({
+  args: {
+    receiptId: v.id("receipts"),
+    userId: v.string(),
     fileDisplayName: v.string(),
 
     // Extracted data fields
@@ -194,20 +244,22 @@ export const updateReceiptWithExtractedData = mutation({
     ),
   },
   handler: async (ctx, args) => {
-    const receipt = await ctx.db.get(args.receiptId);
-    if (!receipt) {
-      throw new Error("Receipt not found");
-    }
+    /** The block below is commented out due to use of internal mutation. */
+    // const receipt = await ctx.db.get(args.receiptId);
+    // if (!receipt) {
+    //   throw new Error("Receipt not found");
+    // }
 
-    const identity = await ctx.auth.getUserIdentity();
-    if (!identity) {
-      throw new Error("User not authenticated");
-    }
+    // const identity = await ctx.auth.getUserIdentity();
+    // console.log("Context received:", ctx.auth);
+    // if (!identity) {
+    //   throw new Error("User not authenticated");
+    // }
 
-    const userId = identity.subject; // [!important] Use subject prop due to its uniqueness othern than id prop
-    if (receipt.userId !== userId) {
-      throw new Error("Not authorized to update this receipt");
-    }
+    // const userId = identity.subject; // [!important] Use subject prop due to its uniqueness othern than id prop
+    // if (receipt.userId !== userId) {
+    //   throw new Error("Not authorized to update this receipt");
+    // }
 
     await ctx.db.patch(args.receiptId, {
       fileDisplayName: args.fileDisplayName,
@@ -222,6 +274,6 @@ export const updateReceiptWithExtractedData = mutation({
       status: "processed", // Update status to "processed" when data is extracted
     });
 
-    return { userId: receipt.userId };
+    // return { userId: receipt.userId };
   },
 });
