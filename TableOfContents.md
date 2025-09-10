@@ -69,3 +69,6 @@
 ### Roadmap
 
 - Add a feature for extracting informations with divided receipt images
+- Add a feature for re-analying receipts due to the wrong AI-powered extraction
+- Add more information to database from receipt scanning
+- Add a feature for a toast messaing if a user tries to upload the same receipt which has been processed before.
