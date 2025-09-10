@@ -151,16 +151,19 @@ export const deleteReceipt = mutation({
       throw new Error("Receipt not found");
     }
 
-    // Verify user has access to this receipt
-    const identity = await ctx.auth.getUserIdentity();
-    if (!identity) {
-      throw new Error("User not authenticated");
-    }
+    // [!important] The block below is commented out due to use of server action for deletion
+    // which already verifies the user authentication and authorization.
+    // If you decide to use this mutation directly from the client, uncomment this block.
+    // // Verify user has access to this receipt
+    // const identity = await ctx.auth.getUserIdentity();
+    // if (!identity) {
+    //   throw new Error("User not authenticated");
+    // }
 
-    const userId = identity.subject; // [!important] Use subject prop due to its uniqueness othern than id prop
-    if (receipt.userId !== userId) {
-      throw new Error("Not authorized to delete this receipt");
-    }
+    // const userId = identity.subject; // [!important] Use subject prop due to its uniqueness othern than id prop
+    // if (receipt.userId !== userId) {
+    //   throw new Error("Not authorized to delete this receipt");
+    // }
 
     // Delete the file from Convex storage
     await ctx.storage.delete(receipt.fileId);
