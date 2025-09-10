@@ -6,7 +6,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { getFileDownloadUrl } from "./getFileDownloadUrl";
 import { inngest } from "@/inngest/client";
 import { Events } from "@/inngest/constants";
-import { isAllowedFile } from "@/lib/validation";
+import { isAllowedFile } from "@/lib/utils";
 
 /**
  * Server action to upload receipt file to Convex storage

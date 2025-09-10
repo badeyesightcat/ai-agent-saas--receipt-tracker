@@ -13,7 +13,7 @@ import { AlertCircle, CheckCircle, CloudUpload } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useRef, useState } from "react";
 import { Button } from "./ui/button";
-import { isAllowedFile } from "@/lib/validation";
+import { isAllowedFile } from "@/lib/utils";
 
 function DragAndDropZone() {
   // setup sensors for drag detection

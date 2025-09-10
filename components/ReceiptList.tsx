@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import { Doc } from "@/convex/_generated/dataModel";
 import { ChevronRight, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { formatFileSize } from "@/lib/utils";
 
 function ReceiptList() {
   const { user } = useUser();
@@ -116,14 +117,3 @@ function ReceiptList() {
 }
 
 export default ReceiptList;
-
-// Helper function to format file size
-function formatFileSize(bytes: number): string {
-  if (bytes === 0) return "0 Bytes";
-
-  const k = 1024;
-  const sizes = ["Bytes", "KB", "MB", "GB"];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
-}
