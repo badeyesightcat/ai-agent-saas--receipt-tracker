@@ -120,3 +120,19 @@ so, in order to achieve that, split the function below into two
 3. Under "Environment Variables", add a new variable named INNGEST_SECRET and paste the secret string as the value.
 4. Add the same secret to the environment where the Inngest agent is running such as .env.local file.
 ```
+
+<br /><br /><br />
+
+- [ ] an error as to scanning PDF files and extracting data from them
+
+```
+/*
+ * Use of the model for scanning receipts, GPT-4o-mini was not good enough.
+*/
+
+[HOWTO]
+1. Search for good AI model for analyzing PDF files especially among OPENAI models,
+2. The result said that GPT-4o is the most suitable one for the task.
+3. And the model solved the bad results of scanning PDFs.
+
+```
