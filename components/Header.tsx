@@ -1,7 +1,6 @@
 "use client"; // make this a client component due to check in where we are
 
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import { Scissors } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
@@ -10,17 +9,18 @@ import { cn } from "@/lib/utils";
 function Header() {
   const pathname = usePathname(); // needs to use "use client" due to checking path
   const isHomepage = pathname === "/";
-  const styleClasses = isHomepage
-    ? "bg-sky-100"
-    : "bg-white border-b-2 border-sky-100";
+  const styleClasses = isHomepage ? "" : "bg-white border-b-2";
 
   return (
-    <div className={cn("p-4 flex items-center justify-between", styleClasses)}>
+    <div
+      className={cn(
+        "p-4 flex items-center justify-between border-slate-200",
+        styleClasses,
+      )}
+    >
       <Link href="/" className="flex items-center">
-        <h1 className="text-xl font-semibold text-purple-600 border-y-4 border-y-purple-600 border-dashed flex items-center gap-2 py-1.5">
-          MONEY
-          <Scissors className="h-6 w-6 text-purple-600" />
-          SHREDDED
+        <h1 className="text-xl font-semibold text-blue-400 flex items-center gap-2 py-1.5 font-mono">
+          where&apos; my money, then?
         </h1>
       </Link>
 
@@ -31,7 +31,9 @@ function Header() {
           </Link>
 
           <Link href={"/manage-plan"}>
-            <Button>Manage Plan</Button>
+            <Button className="bg-slate-300 text-slate-900 hover:bg-slate-400 hover:text-white">
+              Manage Plan
+            </Button>
           </Link>
 
           <UserButton />

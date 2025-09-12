@@ -1,13 +1,6 @@
 import DragAndDropZone from "@/components/DragAndDropZone";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  BarChart,
-  Check,
-  Search,
-  Shield,
-  Upload,
-} from "lucide-react";
+import { ArrowRight, BarChart, Check, Search, Upload } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -29,7 +22,7 @@ export default function Home() {
 
             <div className="space-x-4">
               <Link href="/receipts">
-                <Button className="bg-sky-600 hover:bg-sky-700">
+                <Button className="bg-blue-400 hover:bg-blue-200 hover:text-blue-900">
                   Get Started <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -92,8 +85,8 @@ export default function Home() {
 
               {/* Feature 3 */}
               <div className="flex flex-col items-center space-y-2 border border-gray-200 rounded-lg p-6 dark:border-gray-800">
-                <div className="p-3 rounded-full bg-lime-100 dark:bg-lime-900">
-                  <BarChart className="h-6 w-6 text-lime-600 dark:text-lime-400" />
+                <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900">
+                  <BarChart className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                 </div>
                 <h3 className="text-xl font-bold">Expense Insights</h3>
                 <p className="text-gray-500 dark:text-gray-400 text-center">
@@ -203,8 +196,8 @@ export default function Home() {
             </div>
 
             {/* Pro Tier */}
-            <div className="flex flex-col p-6 bg-indigo-50 border border-indigo-200 rounded-lg dark:border-indigo-900 dark:bg-indigo-900/20 relative">
-              <div className="absolute -top-3 right-4 bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <div className="flex flex-col p-6 bg-blue-50 border border-blue-200 rounded-lg dark:border-blue-900 dark:bg-blue-900/20 relative">
+              <div className="absolute -top-3 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                 Popular
               </div>
               <div className="space-y-2">
@@ -249,7 +242,7 @@ export default function Home() {
               <div className="mt-6">
                 <Link href="/manage-plan">
                   <Button
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white hover:text-white"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white hover:text-white"
                     variant={"outline"}
                   >
                     Get started
@@ -283,8 +276,9 @@ export default function Home() {
         <div className="container px-4 md:px-6 py-8 mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-1">
-              <Shield className="h-6 w-6 text-sky-600" />
-              <span className="text-xl font-semibold">Money Shredded</span>
+              <h6 className="text-md font-semibold text-blue-400 flex items-center gap-2 py-1.5 font-mono">
+                where&apos; my money, then?
+              </h6>
             </div>
             <div className="mt-4 md:mt-0">
               <p className="text-sm text-gray-500 dark:text-gray-400">

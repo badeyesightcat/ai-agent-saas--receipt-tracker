@@ -321,7 +321,7 @@ function Receipt() {
                 {receipt.receiptSummary && (
                   <>
                     {isSummariesEnabled ? (
-                      <div className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-100 shadow-sm">
+                      <div className="mt-6 bg-gradient-to-r from-blue-50 to-blue-50 p-6 rounded-lg border border-blue-100 shadow-sm">
                         <div className="flex items-center mb-4">
                           <h4 className="font-semibold text-blue-700">
                             AI Summary

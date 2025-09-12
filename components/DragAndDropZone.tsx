@@ -143,7 +143,7 @@ function DragAndDropZone() {
           className={cn(
             "border-2 border-dashed rounded-lg p-8 text-center transition-colors",
             {
-              "border-indigo-500 bg-indigo-50": isDraggingOver,
+              "border-blue-500 bg-blue-50": isDraggingOver,
               "border-gray-300": !isDraggingOver,
               "opacity-70 cursor-not-allowed": !canUpload,
             },
@@ -176,7 +176,7 @@ function DragAndDropZone() {
                 onChange={handleFileInputChange}
               />
               <Button
-                className="mt-4 px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={!isFeatureEnabled}
                 onClick={triggerFileInput}
               >
