@@ -11,7 +11,7 @@ export default function Home() {
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="text-6xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl font-serif text-slate-800">
                 Intelligent Receipt Scanning
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
@@ -49,7 +49,7 @@ export default function Home() {
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter md:text-4xl">
+              <h1 className="text-3xl font-bold tracking-tighter md:text-4xl font-serif">
                 Powerful features
               </h1>
               <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
@@ -104,7 +104,7 @@ export default function Home() {
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center space-y-4 text-center justify-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl font-serif">
                 Simple Pricing
               </h2>
               <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
@@ -259,7 +259,7 @@ export default function Home() {
         <div className="container px-4 md:px-6 mx-auto">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl font-serif">
                 Start Scanning Today
               </h2>
               <p className="text-gray-500 md:text-xl dark:text-gray-400">
@@ -276,17 +276,14 @@ export default function Home() {
         <div className="container px-4 md:px-6 py-8 mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-1">
-              <h6 className="text-md font-semibold text-blue-400 flex items-center gap-2 py-1.5 font-mono">
+              <h6 className="text-6xl font-semibold text-blue-200 flex items-center gap-2 py-1.5 font-serif">
                 where&apos; my money, then?
               </h6>
             </div>
             <div className="mt-4 md:mt-0">
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                {/* &copy; {new Date().getFullYear()}  */}
-                Money Shredded.
-                {/* All rights reserved. */}
-                <br />
-                The smarter way to track your money.
+                The most smartest way to track your consumption. <br />
+                &copy; {new Date().getFullYear()} All rights reserved.
               </p>
             </div>
           </div>

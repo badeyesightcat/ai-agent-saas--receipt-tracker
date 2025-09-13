@@ -19,7 +19,7 @@ function Header() {
       )}
     >
       <Link href="/" className="flex items-center">
-        <h1 className="text-xl font-semibold text-blue-400 flex items-center gap-2 py-1.5 font-mono">
+        <h1 className="text-2xl font-semibold text-blue-400 flex items-center gap-2 py-1.5 font-serif">
           where&apos; my money, then?
         </h1>
       </Link>
