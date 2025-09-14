@@ -72,3 +72,4 @@
 - Add a feature for re-analying receipts due to the wrong AI-powered extraction
 - Add more information to database from receipt scanning
 - Add a feature for a toast messaing if a user tries to upload the same receipt which has been processed before.
+- Enhance the receipt scanning feature with giving more proper prompt to AI model: so far, it cannot properly scan and read information as discounts, usage fee at the moment of shopping.
