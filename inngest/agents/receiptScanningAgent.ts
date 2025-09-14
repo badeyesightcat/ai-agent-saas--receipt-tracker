@@ -14,7 +14,7 @@ const parseReceiptTool = createTool({
 
       return await step?.ai.infer("parse-receipt", {
         model: anthropic({
-          model: "claude-3-5-haiku-latest",
+          model: "claude-3-7-sonnet-latest",
           defaultParameters: {
             max_tokens: 3094,
           },
