@@ -45,4 +45,7 @@ export default defineSchema({
     // ),
     // note: v.optional(v.string()),
   }),
+  users: defineTable({
+    name: v.string(),
+  }),
 });
