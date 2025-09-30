@@ -74,6 +74,7 @@
 
 ##### Primary tasks
 
+- Add more database sector such as users: 사용자 데이터베이스 구축
 - Add more information to database from receipt scanning: 영수증으로부터 추출가능한 정보의 확대
 - Enhance the receipt scanning feature with giving more proper prompt to AI model: so far, it cannot properly scan and read information as discounts, usage fee at the moment of shopping: 영수증 스캔 기능 고도화하기 위해 프롬프트 메시지 수정하여 모델에 전달. 그러기 위해서 상단에 표시한 다른 메타정보 인식이 필요하고 관련 데이터를 데이터베이스 저장 필요.
 
