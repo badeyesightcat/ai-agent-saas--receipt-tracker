@@ -14,6 +14,7 @@ export const add = mutation({
   args: {
     name: v.string(),
   },
+  returns: v.id("users"),
   handler: async (ctx, args) => {
     const userId = await ctx.db.insert("users", {
       name: args.name,
