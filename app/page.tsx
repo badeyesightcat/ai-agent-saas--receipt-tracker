@@ -1,6 +1,10 @@
 import DragAndDropZone from "@/components/DragAndDropZone";
+import HomeFeatureBlock from "@/components/HomeFeatureBlock";
+import HomeFeatureIcon from "@/components/HomeFeatureIcon";
+import HomePricingBlock from "@/components/HomePricingBlock";
+import HomeSectionHeader from "@/components/HomeSectionHeader";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BarChart, Check, Search, Upload } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -10,15 +14,11 @@ export default function Home() {
       <section className="py-20 md:py-28 bg-gradient-to-b from-sky--50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h1 className="text-6xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl font-serif text-slate-800">
-                Intelligent Receipt Scanning
-              </h1>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                Scan, analyze, and organize your receipts with AI-powered
-                precision. Save time and gain insights from your expenses.
-              </p>
-            </div>
+            <HomeSectionHeader
+              title="Intelligent Receipt Scanning"
+              description="Scan, analyze, and organize your receipts with AI-powered precision. Save time and gain insights from your expenses."
+              isHero={true}
+            />
 
             <div className="space-x-4">
               <Link href="/receipts">
@@ -48,52 +48,32 @@ export default function Home() {
       <section id="features" className="py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter md:text-4xl font-serif">
-                Powerful features
-              </h1>
-              <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                Our AI-powered platform transforms how you handle receipts and
-                track expenses.
-              </p>
-            </div>
+            <HomeSectionHeader
+              title="Powerful features"
+              description="Our AI-powered platform transforms how you handle receipts and track expenses."
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               {/* Feature 1 */}
-              <div className="flex flex-col items-center space-y-2 border border-gray-200 rounded-lg p-6 dark:border-gray-800">
-                <div className="p-3 rounded-full bg-sky-100 dark:bg-sky-900">
-                  <Upload className="h-6 w-6 text-sky-600 dark:text-sky-400" />
-                </div>
-                <h3 className="text-xl font-bold">Easy Uploads</h3>
-                <p className="text-gray-500 dark:text-gray-400 text-center">
-                  Drag and drop your Receipt receipts for instant scanning and
-                  processing
-                </p>
-              </div>
+              <HomeFeatureBlock
+                title="Easy Uploads"
+                description="Drag and drop your Receipt receipts for instant scanning and processing"
+                icon={<HomeFeatureIcon color="sky" icon="upload" />}
+              />
 
               {/* Feature 2 */}
-              <div className="flex flex-col items-center space-y-2 border border-gray-200 rounded-lg p-6 dark:border-gray-800">
-                <div className="p-3 rounded-full bg-green-100 dark:bg-green-900">
-                  <Search className="h-6 w-6 text-green-600 dark:text-green-400" />
-                </div>
-                <h3 className="text-xl font-bold">AI Analysis</h3>
-                <p className="text-gray-500 dark:text-gray-400 text-center">
-                  Automatically extract and categorize expense data with
-                  intelligent AI
-                </p>
-              </div>
+              <HomeFeatureBlock
+                title="AI Analysis"
+                description="Automatically extract and categorize expense data with intelligent AI"
+                icon={<HomeFeatureIcon color="green" icon="search" />}
+              />
 
               {/* Feature 3 */}
-              <div className="flex flex-col items-center space-y-2 border border-gray-200 rounded-lg p-6 dark:border-gray-800">
-                <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900">
-                  <BarChart className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-                </div>
-                <h3 className="text-xl font-bold">Expense Insights</h3>
-                <p className="text-gray-500 dark:text-gray-400 text-center">
-                  Generate reports and gain valuable insights from your spending
-                  patterns.
-                </p>
-              </div>
+              <HomeFeatureBlock
+                title="Expense Insights"
+                description="Generate reports and gain valuable insights from your spending patterns"
+                icon={<HomeFeatureIcon color="blue" icon="bar-chart" />}
+              />
             </div>
           </div>
         </div>
@@ -103,152 +83,57 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center space-y-4 text-center justify-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl font-serif">
-                Simple Pricing
-              </h2>
-              <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                Choose a plan that fits your needs and start managing your
-                expenses today.
-              </p>
-            </div>
-          </div>
+            <HomeSectionHeader
+              title="Simple Pricing"
+              description="Choose a plan that fits your needs and start managing your expenses today."
+            />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-5xl mx-auto">
-            {/* Free Tier */}
-            <div className="flex flex-col p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-800 dark:bg-gray-950">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold">Free</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Free tier for all to try!
-                </p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-5xl mx-auto">
+              {/* Free Tier */}
+              <HomePricingBlock
+                label="Free"
+                description="Free tier for all to try!"
+                price="0.00"
+                features={[
+                  "2 Scans per month",
+                  "Basic data extraction",
+                  "7-day history",
+                ]}
+                buttonText="Sign Up Free"
+              />
 
-              <div className="mt-4">
-                <p className="text-4xl font-bold">$0.00</p>
-                <p className="text-gray-500 dark:text-gray-400">/month</p>
-              </div>
+              {/* Starter Tier */}
+              <HomePricingBlock
+                label="Starter"
+                description="A taste of expensing goodness!"
+                price="4.99"
+                features={[
+                  "50 Scans per month",
+                  "Enhanced data extraction",
+                  "30-day history",
+                  "Basic export options",
+                ]}
+                buttonText="Choose Plan"
+              />
 
-              <ul className="mt-6 space-y-2 flex-1">
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>2 Scans per month</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>Basic data extraction</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>7-day history</span>
-                </li>
-              </ul>
-
-              <div className="mt-6">
-                <Link href="/manage-plan">
-                  <Button className="w-full" variant={"outline"}>
-                    Sign Up Free
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Starter Tier */}
-            <div className="flex flex-col p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-800 dark:bg-gray-950">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold">Starter</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  A taste of expensing goodness!
-                </p>
-              </div>
-
-              <div className="mt-4">
-                <p className="text-4xl font-bold">$4.99</p>
-                <p className="text-gray-500 dark:text-gray-400">/month</p>
-              </div>
-
-              <ul className="mt-6 space-y-2 flex-1">
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>50 Scans per month</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>Enhanced data extraction</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>30-day history</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>Basic export options</span>
-                </li>
-              </ul>
-
-              <div className="mt-6">
-                <Link href="/manage-plan">
-                  <Button className="w-full" variant={"outline"}>
-                    Choose Plan
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Pro Tier */}
-            <div className="flex flex-col p-6 bg-blue-50 border border-blue-200 rounded-lg dark:border-blue-900 dark:bg-blue-900/20 relative">
-              <div className="absolute -top-3 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                Popular
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold">Pro</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Pro features for the pro user!
-                </p>
-              </div>
-
-              <div className="mt-4">
-                <p className="text-4xl font-bold">$9.99</p>
-                <p className="text-gray-500 dark:text-gray-400">/month</p>
-              </div>
-
-              <ul className="mt-6 space-y-2 flex-1">
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>300 Scans per month</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>Advanced AI data extraction</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>AI summaries</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>Expense categories and tags</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>Advanced export options</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span>Unlimited history</span>
-                </li>
-              </ul>
-
-              <div className="mt-6">
-                <Link href="/manage-plan">
-                  <Button
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white hover:text-white"
-                    variant={"outline"}
-                  >
-                    Get started
-                  </Button>
-                </Link>
-              </div>
+              {/* Pro Tier */}
+              <HomePricingBlock
+                label="Pro"
+                description="Pro features for the pro user!"
+                price="9.99"
+                features={[
+                  "300 Scans per month",
+                  "Advanced AI data extraction",
+                  "AI summaries",
+                  "Expense categories and tags",
+                  "Advanced export options",
+                  "Unlimited history",
+                ]}
+                color="blue"
+                flagged={true}
+                buttonText="Get Started"
+                buttonClasses="w-full bg-blue-600 hover:bg-blue-700 text-white hover:text-white"
+              />
             </div>
           </div>
         </div>
@@ -258,15 +143,10 @@ export default function Home() {
       <section className="py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl font-serif">
-                Start Scanning Today
-              </h2>
-              <p className="text-gray-500 md:text-xl dark:text-gray-400">
-                Join thousands of users who save time and gain insights from
-                their receipts.
-              </p>
-            </div>
+            <HomeSectionHeader
+              title="Start Scanning Today"
+              description="Join thousands of users who save time and gain insights from their receipts."
+            />
           </div>
         </div>
       </section>
