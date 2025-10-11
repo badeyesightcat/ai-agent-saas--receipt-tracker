@@ -57,7 +57,7 @@ export default function Home() {
               {/* Feature 1 */}
               <HomeFeatureBlock
                 title="Easy Uploads"
-                description="Drag and drop your Receipt receipts for instant scanning and processing"
+                description="Drag and drop your receipts for instant scanning and processing"
                 icon={<HomeFeatureIcon color="sky" icon="upload" />}
               />
 
