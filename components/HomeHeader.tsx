@@ -5,8 +5,9 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { Container } from "lucide-react";
 
-function Header() {
+function HomeHeader() {
   const pathname = usePathname(); // needs to use "use client" due to checking path
   const isHomepage = pathname === "/";
   const styleClasses = isHomepage ? "" : "bg-white border-b-2";
@@ -18,9 +19,10 @@ function Header() {
         styleClasses,
       )}
     >
-      <Link href="/" className="flex items-center">
-        <h1 className="text-2xl font-semibold text-blue-400 flex items-center gap-2 py-1.5 font-serif">
-          where&apos; my money, then?
+      <Link href="/" className="flex items-center gap-1">
+        <Container className="text-blue-400 text-3xl" />
+        <h1 className="text-xl font-bold text-blue-400 flex items-center py-1.5">
+          money container
         </h1>
       </Link>
 
@@ -40,7 +42,7 @@ function Header() {
         </SignedIn>
 
         <SignedOut>
-          <SignInButton mode="modal">
+          <SignInButton mode="redirect">
             <Button>Login</Button>
           </SignInButton>
         </SignedOut>
@@ -49,4 +51,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HomeHeader;
