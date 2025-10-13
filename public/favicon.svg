@@ -1,15 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 24 24" fill="none"
-    stroke="oklch(54.6% 0.245 262.881)" stroke-width="2.5" stroke-linecap="round"
-    stroke-linejoin="round"
-    class="lucide lucide-calculator-icon lucide-calculator">
-    <rect width="16" height="20" x="4" y="2" rx="2" />
-    <line x1="8" x2="16" y1="6" y2="6" />
-    <line x1="16" x2="16" y1="14" y2="18" />
-    <path d="M16 10h.01" />
-    <path d="M12 10h.01" />
-    <path d="M8 10h.01" />
-    <path d="M12 14h.01" />
-    <path d="M8 14h.01" />
-    <path d="M12 18h.01" />
-    <path d="M8 18h.01" />
+    stroke="#51a2ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    class="lucide lucide-container-icon lucide-container">
+    <path
+        d="M22 7.7c0-.6-.4-1.2-.8-1.5l-6.3-3.9a1.72 1.72 0 0 0-1.7 0l-10.3 6c-.5.2-.9.8-.9 1.4v6.6c0 .5.4 1.2.8 1.5l6.3 3.9a1.72 1.72 0 0 0 1.7 0l10.3-6c.5-.3.9-1 .9-1.5Z" />
+    <path d="M10 21.9V14L2.1 9.1" />
+    <path d="m10 14 11.9-6.9" />
+    <path d="M14 19.8v-8.1" />
+    <path d="M18 17.5V9.4" />
 </svg>

@@ -3,7 +3,6 @@ import { Bodoni_Moda, Quicksand } from "next/font/google";
 import "./globals.css";
 import ConvexClientProvider from "@/components/ConvexClientProvider";
 import { ClerkProvider } from "@clerk/nextjs";
-import Header from "@/components/Header";
 
 const bodoniModa = Bodoni_Moda({
   variable: "--font-bodoni-moda",
@@ -38,10 +37,7 @@ export default function RootLayout({
         <ClerkProvider
           publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
         >
-          <ConvexClientProvider>
-            <Header />
-            <main>{children}</main>
-          </ConvexClientProvider>
+          <ConvexClientProvider>{children}</ConvexClientProvider>
         </ClerkProvider>
       </body>
     </html>
